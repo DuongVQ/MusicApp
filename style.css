@@ -1,0 +1,265 @@
+:root {
+    --primary-color: #a02bff;
+    --text-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(./Images/raiden-shogun-with-yae-miko-genshin-impact-online-video-game-wallpaper-2560x1080_14.jpg) no-repeat center/cover;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 20px;
+    /* border: 2px solid; */
+    /* border-image-slice: 1; */
+    /* border-image-source: linear-gradient(to right bottom, #6a5af9, #f62682); */
+}
+
+/* .player::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin: -5px;
+    background-image: linear-gradient(120deg, rgb(117, 179, 255), rgba(189, 233, 252, 0.796), rgb(117, 179, 255));
+    border-radius: inherit;
+} */
+
+.player.playing .icon-play,
+.player .icon-pause {
+    display: none;
+}
+
+.player.playing .icon-pause {
+    display: inline-block;
+}
+
+.dashboard {
+    padding: 16px;
+    box-shadow: inset 1px 1px 50px #ffe5f7;
+    background-color: rgba(247, 236, 243, 0.7);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+header {
+    margin-bottom: 10px;
+}
+
+header h4 {
+    font-weight: 500;
+    color: rgb(188, 117, 255);
+}
+
+header h2 {
+    font-weight: 600;
+    /* margin-bottom: 50px; */
+    color: #444;
+}
+
+.cd {
+    display: flex;
+    margin: auto;
+    width: 200px;
+}
+
+.cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    /* border-radius: 20px; */
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    margin: auto;
+    /* margin-bottom: 25px; */
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8px;
+}
+
+.control .btn {
+    color: #666;
+    padding: 18px 25px;
+    font-size: 18px;
+}
+
+.control .btn.active {
+    color: var(--primary-color);
+}
+
+.control .btn-toggle-play {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 25px;
+    color: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid blueviolet;
+    background-color: rgba(255, 255, 255, 0.445);
+}
+
+.progress {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 6px;
+    background-color: #ffffffbe;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+
+.progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 6px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Playlist */
+.playlist {
+    width: 500px;
+    height: 516px;
+    padding: 12px;
+    margin-left: 20px;
+    background-color: rgba(247, 236, 243, 0.7);
+    border-radius: 10px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffd2d2;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #ffcaca;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.playlist:hover::-webkit-scrollbar-thumb {
+    background-color: #ffadad;
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    background-color: #fff2f7cd;
+    padding: 8px 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.song:active {
+    opacity: 0.8;
+}
+
+.song.active .option,
+.song.active .author,
+.song.active .title {
+    color: #ff7293;
+}
+
+.song .thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin: 0 8px;
+}
+
+.song .body {
+    flex: 1;
+    padding: 0 16px;
+}
+
+.song .title {
+    font-size: 18px;
+    color: var(--text-color);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.song .author {
+    font-size: 12px;
+    color: #999;
+}
+
+.song .option {
+    padding: 16px 8px;
+    color: #999;
+    font-size: 18px;
+}
+
+@media (max-width: 845px) {
+    body {
+        height: max-content;
+    }
+    .player {
+        flex-direction: column;
+    }
+    .dashboard {
+        position: fixed;
+        top: 0px;
+        background-color: rgba(247, 236, 243, 0.95);
+    }
+    .playlist {
+        height: 100%;
+        margin-left: 0;
+        margin-top: 550px;
+    }
+}
+
+@media (max-width: 1040px) {
+    .dashboard {
+        max-width: 400px;
+    }
+
+    .playlist {
+        width: 400px;
+    }
+}
